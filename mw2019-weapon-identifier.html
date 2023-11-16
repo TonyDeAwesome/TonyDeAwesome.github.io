@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MW2019 Weapon Identifier</title>
+</head>
+<body>
+
+    <h1>MW2019 Weapon Identifier</h1>
+
+    <form id="searchForm">
+        <label for="weaponSearch">Enter Weapon Moniker:</label>
+        <input type="text" id="weaponSearch" name="weaponSearch" required>
+        <button type="button" onclick="searchWeapon()">Identify!</button>
+    </form>
+
+    <div id="weaponInfo">
+        <!-- Information will be displayed here -->
+    </div>
+
+    <script>
+        function searchWeapon() {
+            // Get the input value
+            var weaponName = document.getElementById('weaponSearch').value;
+
+            // Define weapon information
+            var weaponData = {
+                "Kilo 141": {
+                    "realName": "HK HK433",
+                    "countryOfOrigin": "Germany",
+                    "year": "2017 (Prototypes)/2022 (Final Production Model)",
+                    "company": "Heckler & Koch",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "M4A1": {
+                    "realName": "MK18 Mod 1",
+                    "countryOfOrigin": "United States Of America",
+                    "year": "2000s",
+                    "company": "Colt Defense/Daniel Defense",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "FR 5.56": {
+                    "realName": "FAMAS F1/ACR(Gas Block)",
+                    "countryOfOrigin": "France/United States Of America",
+                    "year": "1975/2010",
+                    "company": "GIAT Industries/Remington Arms Company, LLC.",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "M13": {
+                    "realName": "SIG MCX VIRTUS SBR",
+                    "countryOfOrigin": "United Staes Of America",
+                    "year": "2017",
+                    "company": "SIG Sauer, Inc.",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "AK-47": {
+                    "realName": "AK-47 (Type 3)",
+                    "countryOfOrigin": "Soviet Union",
+                    "year": "1954",
+                    "company": "Mikhail Kalashnikov",
+                    "ammoType": "7.62x39mm",
+     "weaponType": "Assault Rifle"
+                },
+    "RAM-7": {
+                    "realName": "IWI Tavor CTAR-21/IMI Tavor CTAR-21",
+                    "countryOfOrigin": "Israel",
+                    "year": "2001/1997",
+                    "company": "Israel Weapons Industries/Israel Military Industries",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "Grau 5.56": {
+                    "realName": "SIG SG 552 'Commando'",
+                    "countryOfOrigin": "Switzerland",
+                    "year": "1998",
+                    "company": "Swiss Arms AG",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "CR-56 AMAX": {
+                    "realName": "IWI Galil ACE 32",
+                    "countryOfOrigin": "Israel",
+                    "year": "2008",
+                    "company": "Israel Weapon Industries",
+                    "ammoType": "5.56x45mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "AN-94": {
+                    "realName": "AN-94",
+                    "countryOfOrigin": "Russia",
+                    "year": "1994",
+                    "company": "IZhMASh/Kalashnikov Concern",
+                    "ammoType": "5.45x39mm",
+     "weaponType": "Assault Rifle"
+                },
+    "AS Val": {
+                    "realName": "AS Val/ASM Val",
+                    "countryOfOrigin": "Soviet Union/Russia",
+                    "year": "1987/2018",
+                    "company": "Tula Arms Plant",
+                    "ammoType": "9x39mm",
+     "weaponType": "Assault Rifle"
+                },
+    "FAL": {
+                    "realName": "FN FAL 50.00",
+                    "countryOfOrigin": "Belgium",
+                    "year": "1953",
+                    "company": "Fabrique Nationale Herstal",
+                    "ammoType": "7.62x51mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "Oden": {
+                    "realName": "shAK-12 a.k.a. ASh-12.7",
+                    "countryOfOrigin": "Russia",
+                    "year": "2010",
+                    "company": "KBP Instrument Design Bureau",
+                    "ammoType": "12.7x55mm STs-130",
+     "weaponType": "Assault Rifle"
+                },
+    "FN SCAR 17": {
+                    "realName": "FN SCAR-H STD",
+                    "countryOfOrigin": "Belgium",
+                    "year": "2009",
+                    "company": "Fabrique Nationale Herstal",
+                    "ammoType": "7.62x51mm NATO",
+     "weaponType": "Assault Rifle"
+                },
+    "AUG": {
+                    "realName": "Steyr AUG A3 9mm XS",
+                    "countryOfOrigin": "Austria",
+                    "year": "2010s",
+                    "company": "Steyr Arms AG",
+                    "ammoType": "9x19mm Parabellum",
+     "weaponType": "Submachine Gun"
+                },
+    "P90": {
+                    "realName": "FN P90 TR",
+                    "countryOfOrigin": "Belgium",
+                    "year": "1999",
+                    "company": "Fabrique Nationale Herstal",
+                    "ammoType": "FN 5.7x28mm",
+     "weaponType": "Submachine Gun"
+                },
+    "MP5": {
+                    "realName": "HK MP5A3",
+                    "countryOfOrigin": "West Germany",
+                    "year": "1970",
+                    "company": "Heckler & Koch",
+                    "ammoType": "9x19mm Parabellum",
+     "weaponType": "Submachine Gun"
+                },
+    "Uzi": {
+                    "realName": "IMI Uzi",
+                    "countryOfOrigin": "Israel",
+                    "year": "1954",
+                    "company": "Israel Military Industries",
+                    "ammoType": "9x19mm Parabellum/9x21mm IMI/.41 Action Express/.45 ACP (11.53x23mm)/.22 LR (5.6x15mmR)",
+     "weaponType": "Submachine Gun"
+                },
+    "PP-19 Bizon": {
+                    "realName": "PP-19 Bizon-2/Bizon-1",
+                    "countryOfOrigin": "Russia",
+                    "year": "1996",
+                    "company": "IZhMASh",
+                    "ammoType": "9x18mm Makarov",
+     "weaponType": "Submachine Gun"
+                },
+    "MP7": {
+                    "realName": "HK MP7A2",
+                    "countryOfOrigin": "Germany",
+                    "year": "2014",
+                    "company": "Heckler & Koch",
+                    "ammoType": "9x19mm Parabellum",
+     "weaponType": "Submachine Gun"
+                },
+    "Striker-45": {
+                    "realName": "LWRC SMG-45",
+                    "countryOfOrigin": "United States Of America",
+                    "year": "2010s",
+                    "company": "LWRC International, LLC.",
+                    "ammoType": ".45 ACP (11.43x23mm)",
+     "weaponType": "Submachine Gun"
+                },
+    "Fennec": {
+                    "realName": "KRISS Vector Gen. II (SIMILAR)",
+                    "countryOfOrigin": "United States Of America",
+                    "year": "2015",
+                    "company": "Kriss USA, Inc.",
+                    "ammoType": ".45 ACP (11.43x23mm)",
+     "weaponType": "Submachine Gun"
+                },
+    "ISO": {
+                    "realName": "B&T APC9 K PRO G/B&T GHM9 Compact G",
+                    "countryOfOrigin": "Switzerland",
+                    "year": "2010s/2017",
+                    "company": "Brügger & Thomet",
+                    "ammoType": "9x19mm Parabellum",
+     "weaponType": "Submachine Gun"
+                },
+    "CX-9": {
+                    "realName": "CZ Scorpion Evo A1",
+                    "countryOfOrigin": "Czech Republic",
+                    "year": "2009",
+                    "company": "Česká Zbrojovka Uherský Brod",
+                    "ammoType": "9x19mm Parabellum",
+     "weaponType": "Submachine Gun"
+                },
+    "Model 680": {
+     "realName": "Remington 870 MCS",
+     "countryOfOrigin": "United States Of America",
+     "year": "2004",
+     "company": "Remington Arms Company, LLC.",
+     "ammoType": "12 Gauge",
+     "weaponType": "Shotgun"
+    },
+    "R9-0 Shotgun": {
+     "realName": "Standard Manufacturing DP-12",
+     "countryOfOrigin": "United States Of America",
+     "year": "2015",
+     "company": "Standard Manufacturing, LLC.",
+     "ammoType": "12 Gauge",
+     "weaponType": "Shotgun"
+    },
+    "725": {
+     "realName": "Browning Citori 725 Pro Trap/Sporting",
+     "countryOfOrigin": "Japan",
+     "year": "2012",
+     "company": "Miroku Corporation",
+     "ammoType": "12 Gauge & more",
+     "weaponType": "Shotgun"
+    },
+    "Origin-12 Shotgun": {
+     "realName": "Fostech Origin-12",
+     "countryOfOrigin": "United States Of America",
+     "year": "2013",
+     "company": "Fostech, Inc.",
+     "ammoType": "12 Gauge",
+     "weaponType": "Shotgun"
+    },
+    "VLK Rogue": {
+     "realName": "M26 MASS",
+     "countryOfOrigin": "United States Of America",
+     "year": "2003 (Early Version)/2011 (Current Version)",
+     "company": "C-More Competition",
+     "ammoType": "12 Gauge",
+     "weaponType": "Shotgun"
+    },
+    "JAK-12": {
+     "realName": "MPS AA-12 CQB",
+     "countryOfOrigin": "United States Of America",
+     "year": "2005",
+     "company": "Military Police Systems",
+     "ammoType": "12 Gauge",
+     "weaponType": "Shotgun"
+    },
+    "PKM": {
+     "realName": "PKM",
+     "countryOfOrigin": "Soviet Union",
+     "year": "1969",
+     "company": "Degtyaryov Plant",
+     "ammoType": "7.62x54mmR",
+     "weaponType": "Light Machine Gun"
+    },
+    "SA87": {
+     "realName": "L86A1 LSW",
+     "countryOfOrigin": "United Kingdom",
+     "year": "1985",
+     "company": "Royal Small Arms Factory/Royal Ordinance",
+     "ammoType": "5.56x45mm NATO",
+     "weaponType": "Light Machine Gun"
+    },
+    "M91": {
+     "realName": "HK MG5",
+     "countryOfOrigin": "Germany",
+     "year": "2010",
+     "company": "Heckler & Koch",
+     "ammoType": "7.62x51mm NATO",
+     "weaponType": "Light Machine Gun"
+    },
+    "MG-34": {
+     "realName": "MG-34",
+     "countryOfOrigin": "Nazi Germany",
+     "year": "1934-1935",
+     "company": "Mauser Industries & more",
+     "ammoType": "7.92x57mm Mauser",
+     "weaponType": "Light Machine Gun"
+    },
+    "Holger-26": {
+     "realName": "HK G36 or HK MG36",
+     "countryOfOrigin": "Germany",
+     "year": "1996/1995",
+     "company": "HEckler & Koch",
+     "ammoType": "5.56x45mm NATO",
+     "weaponType": "Light Machine Gun"
+    },
+    "Bruen Mk9": {
+     "realName": "FN Minimi",
+     "countryOfOrigin": "Belgium",
+     "year": "1977",
+     "company": "Fabrique Nationale Herstal",
+     "ammoType": "5.56x45mm NATO",
+     "weaponType": "Light Machine Gun"
+    },
+    "FiNN LMG": {
+     "realName": "KAC LAMG",
+     "countryOfOrigin": "United States Of America",
+     "year": "2018",
+     "company": "Knight's Armament Company",
+     "ammoType": "5.56x45mm NATO",
+     "weaponType": "Light Machine Gun"
+    },
+    "RAAL MG": {
+     "realName": "SIG MG 338",
+     "countryOfOrigin": "United States OF America",
+     "year": "2018",
+     "company": "SIG Sauer, Inc.",
+     "ammoType": ".338 Norma Magnum (8.6x63mm)",
+     "weaponType": "Light Machine Gun"
+    },
+    "Minigun": {
+     "realName": "Dillan Aero M134 Minigun",
+     "countryOfOrigin": "United States Of America",
+     "year": "1962",
+     "company": "Dillan Aero/General Electric",
+     "ammoType": "7.62x51mm NATO",
+     "weaponType": "Killstreak"
+    },
+    "EBR-14": {
+     "realName": "M14 (FIRE SELECTOR)/M1A Scout Squad (BARREL LENGTH & STOCK)/ M1A SOCOM II (PICATINNY RAIL SYSTEM)",
+     "countryOfOrigin": "United States Of America",
+     "year": "1957/1998/2005",
+     "company": "Springfield Armory",
+     "ammoType": "7.62x51mm NATO",
+     "weaponType": "Marksman Rifle"
+    },
+    "Mk2 Carbine": {
+     "realName": "Marlin Model 1895SBL",
+     "countryOfOrigin": "United States Of America",
+     "year": "2009",
+     "company": "Marlin Firearms",
+     "ammoType": ".45-70 Government",
+     "weaponType": "Marksman Rifle"
+    },
+    "Kar98k": {
+     "realName": "Karabiner 98k",
+     "countryOfOrigin": "Nazi Germany",
+     "year": "1934-1935",
+     "company": "Mauser Industries",
+     "ammoType": "7.92x57mm Mauser",
+     "weaponType": "Marksman Rifle"
+    },
+    "Crossbow": {
+     "realName": "Barnett Headhunter/Scorpyd Aculeus",
+     "countryOfOrigin": "United States Of America",
+     "year": "2013/2018",
+     "company": "UNKNOWN",
+     "ammoType": "20.0' Bolts",
+     "weaponType": "Marksman Rifle"
+    },
+    "SKS": {
+     "realName": "'Custom' Zastava PAP M59/66",
+     "countryOfOrigin": "Yugoslavia/United States Of America (Tapco Intrafuse Stock System)",
+     "year": "1967",
+     "company": "Zastava Arms",
+     "ammoType": "7.62/39mm",
+     "weaponType": "Marksman Rifle"
+    },
+    "SP-R 208": {
+     "realName": "XM24A1 SWS",
+     "countryOfOrigin": "United States Of America",
+     "year": "1980s-1990s",
+     "company": "Remington Arms Company, LLC.",
+     "ammoType": ".300 Winchester Magnum (7.62x67mm)",
+     "weaponType": "Marksman Rifle"
+    },
+    "Dragunov": {
+     "realName": "SVD Dragunov",
+     "countryOfOrigin": "Soviet Union",
+     "year": "1963",
+     "company": "IZhMASh",
+     "ammoType": "7.62x54mmR",
+     "weaponType": "Sniper Rifle"
+    },
+    "HDR": {
+     "realName": "Victrix Corvo (MAIN WEAPON)/ArmaLite AR-50A1B (STOCK)",
+     "countryOfOrigin": "Italy/United States Of America",
+     "year": "2017/2011",
+     "company": "Beretta/ArmaLite",
+     "ammoType": ".50 BMG (12.7x99mm NATO)",
+     "weaponType": "Sniper Rifle"
+    },
+    "Rytec AMR": {
+     "realName": "Barrett XM109",
+     "countryOfOrigin": "United States Of America",
+     "year": "1990s-2000s",
+     "company": "Barrett Firearms Manufacturing",
+     "ammoType": "25x59mm",
+     "weaponType": "Sniper Rifle"
+    },
+    "AX-50": {
+     "realName": "AX-50",
+     "countryOfOrigin": "United Kingdom",
+     "year": "2010",
+     "company": "Accuracy International",
+     "ammoType": ".50 BMG (12.7x99mm NATO)",
+     "weaponType": "Sniper Rifle"
+    },
+    "X16": {
+     "realName": "Glock 21 Gen. 3",
+     "countryOfOrigin": "Austria",
+     "year": "1996",
+     "company": "Glock Ges.m.b.H",
+     "ammoType": ".45 ACP (11.43x23mm)",
+     "weaponType": "Handgun"
+    },
+    "1911": {
+     "realName": "Kimber Custom TLE RL II",
+     "countryOfOrigin": "United States Of America",
+     "year": "2010s",
+     "company": "Kimber Manufacturing, Inc.",
+     "ammoType": ".45 ACP (11.43x23mm)",
+     "weaponType": "Handgun"
+    },
+    ".357": {
+     "realName": "Colt Anaconda/S&W Model 581",
+     "countryOfOrigin": "United States Of America",
+     "year": "1990/1980",
+     "company": "Colt's Manufacturing Company/Smith & Wesson Brands, Inc.",
+     "ammoType": ".44 Magnum (10.9x33mmR)/.44 Special (10.9x29mmR)/.45 Colt (11.43x33mmR)/.357 Magnum (9x33mmR)/.38 Special (9x29mmR)",
+     "weaponType": "Handgun"
+    },
+    "M19": {
+     "realName": "SIG P320-M18",
+     "countryOfOrigin": "United States Of America",
+     "year": "2017",
+     "company": "SIG Sauer, Inc.",
+     "ammoType": "9x19mm Parabellum",
+     "weaponType": "Handgun"
+    },
+    ".50 GS": {
+     "realName": "Desert Eagle Mark XIX",
+     "countryOfOrigin": "United States Of America/Israel",
+     "year": "1995",
+     "company": "Magnum Research/Israel Military Industries",
+     "ammoType": ".50 Action Express (12.7x33mmRB)/.44 Magnum (10.9x33mmR)/.357 Magnum (9x33mmR) & more",
+     "weaponType": "Handgun"
+    },
+    "Renetti": {
+     "realName": "Beretta M9A3",
+     "countryOfOrigin": "Italy",
+     "year": "2015",
+     "company": "Beretta",
+     "ammoType": "9x19mm Parabellum",
+     "weaponType": "Handgun"
+    },
+    "Sykov": {
+     "realName": "Makarov PM",
+     "countryOfOrigin": "Soviet Union",
+     "year": "1951",
+     "company": "Izhevsk Mechanical Plant",
+     "ammoType": "9x18mm Makarov",
+     "weaponType": "Handgun"
+    },
+    "PILA": {
+     "realName": "9K333 Verba a.k.a. SA-25",
+     "countryOfOrigin": "Russia",
+     "year": "2011",
+     "company": "KB Mashinostroyeniya",
+     "ammoType": "72mm",
+     "weaponType": "Launcher"
+    },
+    "Strela-P": {
+     "realName": "Carl Gustaf M4",
+     "countryOfOrigin": "Sweden",
+     "year": "2014",
+     "company": "Saab Bofors Dynamics",
+     "ammoType": "84mm",
+     "weaponType": "Launcher"
+    },
+    "JOKR": {
+     "realName": "FGM-148 Javelin",
+     "countryOfOrigin": "United States Of America",
+     "year": "1996",
+     "company": "Raytheon Tech & Lockheed Martin",
+     "ammoType": "127mm",
+     "weaponType": "Launcher"
+    },
+    "RPG-7": {
+     "realName": "RPG-7",
+     "countryOfOrigin": "Soviet Union",
+     "year": "1961",
+     "company": "Bazalt/Degtyaryov Plant",
+     "ammoType": "84mm",
+     "weaponType": "Launcher"
+    },
+    "MGL-32": {
+     "realName": "Milkor Mark 14 Mod 0 a.k.a. M32A1",
+     "countryOfOrigin": "South Africa/United States Of America",
+     "year": "2010s",
+     "company": "Milkor (Pty) Ltd./Milkor USA, Inc.",
+     "ammoType": "40x46mm",
+     "weaponType": "Special Weapon"
+    },
+    "M203": {
+     "realName": "LMT M203",
+     "countryOfOrigin": "United States Of America",
+     "year": "2000s",
+     "company": "LMT Defense",
+     "ammoType": "40x46mm SR",
+     "weaponType": "Underbarrel Weapon"
+    },
+    "GP-25": {
+     "realName": "GP-25",
+     "countryOfOrigin": "Soviet Union",
+     "year": "1978",
+     "company": "IZhMASh",
+     "ammoType": "40x53mm VOG-25",
+     "weaponType": "Underbarrel Weapon"
+    },
+    "40mm": {
+     "realName": "FN40GL",
+     "countryOfOrigin": "Belgium",
+     "year": "2004",
+     "company": "Fabrique Nationale Herstal",
+     "ammoType": "40x46mm NATO",
+     "weaponType": "Underbarrel Weapon"
+    },
+    "M203 (2)": {
+     "realName": "Airsoft Madbull XM203/ISTEC ISL-200",
+     "countryOfOrigin": "United States Of America/United Kingdom",
+     "year": "2010s/2000s",
+     "company": "Madbull Airsoft/ISTEC Services, Ltd.",
+     "ammoType": "40mm & 37mm",
+     "weaponType": "Underbarrel Weapon"
+    },
+    "M203 (3)": {
+     "realName": "Airsoft Madbull XM203/ISTEC ISL-200/GP-25 (EXCLUSIVE TO AN-94)",
+     "countryOfOrigin": "United States Of America/United Kingdom/Soviet Union",
+     "year": "2010s/2000s/1978",
+     "company": "Madbull Airsoft/ISTEC Services, Ltd./IZhMASh",
+     "ammoType": "40mm, 37mm, 40x53mm VOG-25",
+     "weaponType": "Underbarrel Weapon"
+    },
+    "12 Gauge Deputy": {
+     "realName": "KAC Masterkey",
+     "countryOfOrigin": "United States Of America",
+     "year": "1980s",
+     "company": "Knight's Armament Company",
+     "ammoType": "12 Gauge",
+     "weaponType": "Underbarrel Weapon"
+    },
+    
+                // Add more weapons as needed
+            };
+
+            // Display information if available
+            var weaponInfo = weaponData[weaponName];
+            if (weaponInfo) {
+                document.getElementById('weaponInfo').innerHTML = `
+                    <h2>${weaponName}</h2>
+                    <p><strong>Real Name:</strong> ${weaponInfo.realName}</p>
+                    <p><strong>Country of Origin:</strong> ${weaponInfo.countryOfOrigin}</p>
+                    <p><strong>Year:</strong> ${weaponInfo.year}</p>
+                    <p><strong>Company:</strong> ${weaponInfo.company}</p>
+                    <p><strong>Ammo Type:</strong> ${weaponInfo.ammoType}</p>
+                    <p><strong>Weapon Type:</strong> ${weaponInfo.weaponType}</p>
+                `;
+            } else {
+                document.getElementById('weaponInfo').innerHTML = '<p>Weapon not found. Enter the in-game name and not the real name here.</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>
